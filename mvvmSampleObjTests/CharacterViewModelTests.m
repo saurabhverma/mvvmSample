@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "CharacterViewModel.h"
+#import "Character.h"
 
 @interface CharacterViewModelTests : XCTestCase
 
@@ -35,10 +36,10 @@
 
     CharacterViewModel* charViewModel = [[CharacterViewModel alloc] initWithcharacter:character];
 
-    XCTAssertEqual(charViewModel.nameText, @"Luke Skywalker");
-    XCTAssertEqual(charViewModel.heightText, @"1.72 m");
-    XCTAssertEqual(charViewModel.birthYearText, @"19 BBY");
-    XCTAssertEqual(charViewModel.genderText, @"Male");
+    XCTAssertTrue([charViewModel.nameText isEqualToString:@"Luke Skywalker"]);
+    XCTAssertTrue([charViewModel.heightText isEqualToString:@"1.72 m"]);
+    XCTAssertTrue([charViewModel.birthYearText isEqualToString:@"19 BBY"]);
+    XCTAssertTrue([charViewModel.genderText isEqualToString:@"Male"]);
 }
 
 - (void)testPerformanceExample {

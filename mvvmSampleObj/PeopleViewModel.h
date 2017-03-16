@@ -9,11 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "CharacterViewModel.h"
 
+@class People;
 @interface PeopleViewModel : NSObject
 
-@property(nonatomic, readonly) NSString* emptyScreenText;
-@property(nonatomic, readonly) NSString* noMoreResultsText;
+@property(nonatomic) NSString* emptyScreenText;
+@property(nonatomic) NSString* noMoreResultsText;
 @property(nonatomic) NSString* errorMessageText;
 @property(nonatomic) NSString* totalCountText;
-@property(nonatomic) NSArray<CharacterViewModel*> *people;
+@property(nonatomic) NSArray <CharacterViewModel*> * characterViewModels;
+
+- (instancetype)initWithPeople:(People*)people;
 @end

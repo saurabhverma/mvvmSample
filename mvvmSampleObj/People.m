@@ -10,4 +10,13 @@
 
 @implementation People
 
++ (JSONKeyMapper *)keyMapper
+{
+    return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{
+                                                                  @"count": @"count",
+                                                                  @"nextPageUrl": @"next",
+                                                                  @"prevPageUrl": @"previous",
+                                                                  @"characters": @"results"
+                                                                  }];
+}
 @end

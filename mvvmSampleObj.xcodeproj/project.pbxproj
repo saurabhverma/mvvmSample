@@ -9,15 +9,15 @@
 /* Begin PBXBuildFile section */
 		20F5B3B5A664EC5F6D934CD6 /* libPods-mvvmSampleObjTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB6B5E424F59E1C867955E0 /* libPods-mvvmSampleObjTests.a */; };
 		5731140FFAA48A93BB288AC8 /* libPods-mvvmSampleObj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7041FEA48A539EF84C804D55 /* libPods-mvvmSampleObj.a */; };
-		B79C7B281E77A69200FFC393 /* mvvmSampleObjUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B79C7B271E77A69200FFC393 /* mvvmSampleObjUITests.m */; };
 		B79C7B321E78A45500FFC393 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B79C7B311E78A45500FFC393 /* NetworkManager.m */; };
 		B79C7B331E78A45500FFC393 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B79C7B311E78A45500FFC393 /* NetworkManager.m */; };
-		B79C7B341E78A45500FFC393 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B79C7B311E78A45500FFC393 /* NetworkManager.m */; };
 		B79C7B371E78C03200FFC393 /* CharacterViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B79C7B361E78C03200FFC393 /* CharacterViewModelTests.m */; };
 		B79C7B391E78C04500FFC393 /* PeopleManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B79C7B381E78C04500FFC393 /* PeopleManagerTests.m */; };
 		B79C7B3E1E78DCFA00FFC393 /* PeopleViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B79C7B3D1E78DCFA00FFC393 /* PeopleViewModel.m */; };
 		B79C7B3F1E78DCFA00FFC393 /* PeopleViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B79C7B3D1E78DCFA00FFC393 /* PeopleViewModel.m */; };
-		B79C7B401E78DCFA00FFC393 /* PeopleViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B79C7B3D1E78DCFA00FFC393 /* PeopleViewModel.m */; };
+		B79C7B441E7A0BCD00FFC393 /* PeopleViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B79C7B431E7A0BCD00FFC393 /* PeopleViewModelTests.m */; };
+		B79C7B481E7A15BE00FFC393 /* People.m in Sources */ = {isa = PBXBuildFile; fileRef = B79C7B471E7A15BE00FFC393 /* People.m */; };
+		B79C7B491E7A15BE00FFC393 /* People.m in Sources */ = {isa = PBXBuildFile; fileRef = B79C7B471E7A15BE00FFC393 /* People.m */; };
 		B7EE58681E77788900655419 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B7EE58671E77788900655419 /* main.m */; };
 		B7EE586B1E77788900655419 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B7EE586A1E77788900655419 /* AppDelegate.m */; };
 		B7EE586E1E77788900655419 /* PeopleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B7EE586D1E77788900655419 /* PeopleVC.m */; };
@@ -35,13 +35,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B79C7B2A1E77A69200FFC393 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B7EE585B1E77788900655419 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B7EE58621E77788900655419;
-			remoteInfo = mvvmSampleObj;
-		};
 		B7EE587D1E77788900655419 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B7EE585B1E77788900655419 /* Project object */;
@@ -59,7 +52,6 @@
 		7041FEA48A539EF84C804D55 /* libPods-mvvmSampleObj.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mvvmSampleObj.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7881A33E81667A24B1D05620 /* Pods-mvvmSampleObjTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvvmSampleObjTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mvvmSampleObjTests/Pods-mvvmSampleObjTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9FF4BCD295B1F5F58F918EF5 /* Pods-mvvmSampleObjUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvvmSampleObjUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mvvmSampleObjUITests/Pods-mvvmSampleObjUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		B79C7B251E77A69200FFC393 /* mvvmSampleObjUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mvvmSampleObjUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B79C7B271E77A69200FFC393 /* mvvmSampleObjUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mvvmSampleObjUITests.m; sourceTree = "<group>"; };
 		B79C7B291E77A69200FFC393 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B79C7B301E78A45500FFC393 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
@@ -68,6 +60,10 @@
 		B79C7B381E78C04500FFC393 /* PeopleManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeopleManagerTests.m; sourceTree = "<group>"; };
 		B79C7B3C1E78DCFA00FFC393 /* PeopleViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeopleViewModel.h; sourceTree = "<group>"; };
 		B79C7B3D1E78DCFA00FFC393 /* PeopleViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeopleViewModel.m; sourceTree = "<group>"; };
+		B79C7B431E7A0BCD00FFC393 /* PeopleViewModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeopleViewModelTests.m; sourceTree = "<group>"; };
+		B79C7B451E7A13BF00FFC393 /* HTTPStatusCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPStatusCodes.h; sourceTree = "<group>"; };
+		B79C7B461E7A15BE00FFC393 /* People.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = People.h; sourceTree = "<group>"; };
+		B79C7B471E7A15BE00FFC393 /* People.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = People.m; sourceTree = "<group>"; };
 		B7EE58631E77788900655419 /* mvvmSampleObj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mvvmSampleObj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7EE58671E77788900655419 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B7EE58691E77788900655419 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -92,13 +88,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B79C7B221E77A69200FFC393 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B7EE58601E77788900655419 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -142,6 +131,7 @@
 			children = (
 				B79C7B301E78A45500FFC393 /* NetworkManager.h */,
 				B79C7B311E78A45500FFC393 /* NetworkManager.m */,
+				B79C7B451E7A13BF00FFC393 /* HTTPStatusCodes.h */,
 			);
 			name = NetworkManager;
 			sourceTree = "<group>";
@@ -159,6 +149,7 @@
 			children = (
 				B79C7B361E78C03200FFC393 /* CharacterViewModelTests.m */,
 				B79C7B381E78C04500FFC393 /* PeopleManagerTests.m */,
+				B79C7B431E7A0BCD00FFC393 /* PeopleViewModelTests.m */,
 			);
 			name = People;
 			sourceTree = "<group>";
@@ -180,7 +171,6 @@
 			children = (
 				B7EE58631E77788900655419 /* mvvmSampleObj.app */,
 				B7EE587C1E77788900655419 /* mvvmSampleObjTests.xctest */,
-				B79C7B251E77A69200FFC393 /* mvvmSampleObjUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -256,6 +246,8 @@
 			children = (
 				B7EE58A21E777E8600655419 /* Character.h */,
 				B7EE58A31E777E8600655419 /* Character.m */,
+				B79C7B461E7A15BE00FFC393 /* People.h */,
+				B79C7B471E7A15BE00FFC393 /* People.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -276,24 +268,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B79C7B241E77A69200FFC393 /* mvvmSampleObjUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B79C7B2C1E77A69200FFC393 /* Build configuration list for PBXNativeTarget "mvvmSampleObjUITests" */;
-			buildPhases = (
-				B79C7B211E77A69200FFC393 /* Sources */,
-				B79C7B221E77A69200FFC393 /* Frameworks */,
-				B79C7B231E77A69200FFC393 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B79C7B2B1E77A69200FFC393 /* PBXTargetDependency */,
-			);
-			name = mvvmSampleObjUITests;
-			productName = mvvmSampleObjUITests;
-			productReference = B79C7B251E77A69200FFC393 /* mvvmSampleObjUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		B7EE58621E77788900655419 /* mvvmSampleObj */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B7EE58901E77788900655419 /* Build configuration list for PBXNativeTarget "mvvmSampleObj" */;
@@ -344,11 +318,6 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Outware;
 				TargetAttributes = {
-					B79C7B241E77A69200FFC393 = {
-						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Automatic;
-						TestTargetID = B7EE58621E77788900655419;
-					};
 					B7EE58621E77788900655419 = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
@@ -375,19 +344,11 @@
 			targets = (
 				B7EE58621E77788900655419 /* mvvmSampleObj */,
 				B7EE587B1E77788900655419 /* mvvmSampleObjTests */,
-				B79C7B241E77A69200FFC393 /* mvvmSampleObjUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		B79C7B231E77A69200FFC393 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B7EE58611E77788900655419 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -501,16 +462,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		B79C7B211E77A69200FFC393 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B79C7B341E78A45500FFC393 /* NetworkManager.m in Sources */,
-				B79C7B281E77A69200FFC393 /* mvvmSampleObjUITests.m in Sources */,
-				B79C7B401E78DCFA00FFC393 /* PeopleViewModel.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B7EE585F1E77788900655419 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -518,6 +469,7 @@
 				B7EE58A11E777E6D00655419 /* CharacterViewModel.m in Sources */,
 				B79C7B321E78A45500FFC393 /* NetworkManager.m in Sources */,
 				B7EE58A41E777E8600655419 /* Character.m in Sources */,
+				B79C7B481E7A15BE00FFC393 /* People.m in Sources */,
 				B7EE58A71E77978E00655419 /* PeopleManager.m in Sources */,
 				B7EE586E1E77788900655419 /* PeopleVC.m in Sources */,
 				B79C7B3E1E78DCFA00FFC393 /* PeopleViewModel.m in Sources */,
@@ -533,7 +485,9 @@
 				B7EE58A81E779B1800655419 /* CharacterViewModel.m in Sources */,
 				B7EE58811E77788900655419 /* mvvmSampleObjTests.m in Sources */,
 				B79C7B391E78C04500FFC393 /* PeopleManagerTests.m in Sources */,
+				B79C7B441E7A0BCD00FFC393 /* PeopleViewModelTests.m in Sources */,
 				B7EE58AA1E779B1B00655419 /* PeopleManager.m in Sources */,
+				B79C7B491E7A15BE00FFC393 /* People.m in Sources */,
 				B7EE58AE1E77A1E500655419 /* PeopleVC.m in Sources */,
 				B79C7B371E78C03200FFC393 /* CharacterViewModelTests.m in Sources */,
 				B79C7B331E78A45500FFC393 /* NetworkManager.m in Sources */,
@@ -545,11 +499,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B79C7B2B1E77A69200FFC393 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B7EE58621E77788900655419 /* mvvmSampleObj */;
-			targetProxy = B79C7B2A1E77A69200FFC393 /* PBXContainerItemProxy */;
-		};
 		B7EE587E1E77788900655419 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B7EE58621E77788900655419 /* mvvmSampleObj */;
@@ -577,28 +526,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		B79C7B2D1E77A69200FFC393 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = mvvmSampleObjUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.outware.mvvmSampleObjUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = mvvmSampleObj;
-			};
-			name = Debug;
-		};
-		B79C7B2E1E77A69200FFC393 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = mvvmSampleObjUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.outware.mvvmSampleObjUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = mvvmSampleObj;
-			};
-			name = Release;
-		};
 		B7EE588E1E77788900655419 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -742,14 +669,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B79C7B2C1E77A69200FFC393 /* Build configuration list for PBXNativeTarget "mvvmSampleObjUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B79C7B2D1E77A69200FFC393 /* Debug */,
-				B79C7B2E1E77A69200FFC393 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
 		B7EE585E1E77788900655419 /* Build configuration list for PBXProject "mvvmSampleObj" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

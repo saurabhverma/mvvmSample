@@ -9,6 +9,7 @@
 #import "PeopleManager.h"
 #import "NetworkManager.h"
 #import <objc/objc-runtime.h>
+#import "People.h"
 
 NSString* _Nonnull peopleURL = @"http://swapi.co/api/people/";
 
@@ -17,9 +18,6 @@ NSString* _Nonnull peopleURL = @"http://swapi.co/api/people/";
     dispatch_queue_t serialQueue;
 }
 - (void)executeBlock:(void (^)())block;
-- (void)parsePeopleJSON:(NSDictionary*)jsonDict
-                 forKey:(NSString*)key
-      completionHandler:(void (^)(NSArray<CharacterViewModel*>* result, NSError* error))completionHandler;
 @end
 
 @implementation PeopleManager
@@ -40,31 +38,33 @@ NSString* _Nonnull peopleURL = @"http://swapi.co/api/people/";
 
         [self executeBlock:^{
 
-            __block PeopleViewModel* peopleViewModel = [[PeopleViewModel alloc] init];
+            __block bool success = YES;
             NSError* responseError;
+            PeopleViewModel* peopleViewModel = nil;
 
             @try{
 
-                if (!error) {
+                NSUInteger statusCode = ((NSHTTPURLResponse *)response).statusCode;
+                if (!error && statusCode == HTTPCodesNo200OK) {
                     NSError *jsonError;
+
                     //Get the Json dictionary out of Data
-                    NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data
+                    id jsonDict = [NSJSONSerialization JSONObjectWithData:data
                                                                              options:0
                                                                                error:&jsonError];
 
-                    if (!jsonError) {
+                    if (!jsonError && [jsonDict isKindOfClass:[NSDictionary class]]) {
 
-                        if (jsonDict[@"results"]) {
-                            [self parsePeopleJSON:jsonDict
-                                           forKey:@"results"
-                                completionHandler:^(NSArray<CharacterViewModel *> *result, NSError *error) {
-                                    peopleViewModel.people = result;
-                                }];
-                        }
-                        if (jsonDict[@"count"]) {
-                            peopleViewModel.totalCountText = [NSString stringWithFormat:@"%@ People in total", jsonDict[@"count"]];
-                        }
+                        NSError* jsonModelError;
+                        People* people = [[People alloc] initWithDictionary:jsonDict error:&jsonModelError];
 
+                        
+                        if (!jsonModelError) {
+                            peopleViewModel = [[PeopleViewModel alloc] initWithPeople:people];
+                        }
+                        else {
+                            responseError = jsonModelError;
+                        }
                     }
                     else {
                         responseError = jsonError;
@@ -75,13 +75,15 @@ NSString* _Nonnull peopleURL = @"http://swapi.co/api/people/";
                 }
             }
             @catch (NSException *exception){
-                NSLog(@"%@", exception.reason);
+
+                success = NO;
+                peopleViewModel.errorMessageText = exception.reason;
             }
             @finally {
 
                 dispatch_async(dispatch_get_main_queue(), ^{
 
-                    bool success = YES;
+
                     if (responseError) {
                         success = NO;
                         peopleViewModel.errorMessageText = responseError.localizedDescription;
@@ -95,29 +97,6 @@ NSString* _Nonnull peopleURL = @"http://swapi.co/api/people/";
     [[NetworkManager sharedManager] requestWithURL:peopleURL completionHandler:block];
 }
 #pragma mark - Private Methods
-- (void)parsePeopleJSON:(NSDictionary*)jsonDict
-                 forKey:(NSString*)key
-      completionHandler:(void (^)(NSArray<CharacterViewModel*>* result, NSError* error))completionHandler {
-
-
-    NSMutableArray<CharacterViewModel *>* characterViewModels = [NSMutableArray array];
-    NSError* parseError;
-
-    for (NSDictionary* json in [jsonDict objectForKey:key]) {
-
-        @autoreleasepool {
-
-            Character* character = [[Character alloc] initWithDictionary:json error:&parseError];
-
-            if (!parseError) {
-                CharacterViewModel* charViewModel = [[CharacterViewModel alloc] initWithcharacter:character];
-                [characterViewModels addObject:charViewModel];
-            }
-        }
-    }
-
-    completionHandler(characterViewModels, parseError);
-}
 - (void)executeBlock:(void (^)())block {
     dispatch_async(serialQueue, block);
 }

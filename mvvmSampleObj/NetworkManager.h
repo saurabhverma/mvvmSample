@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HTTPStatusCodes.h"
 
 typedef void(^ _Nullable NMRequestBlock)(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error);
 

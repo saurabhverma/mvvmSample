@@ -7,13 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Character.h"
 
+@class Character;
 @interface CharacterViewModel : NSObject
 
-@property(nonatomic) Character* character;
-
-//Texts
 @property(nonatomic) NSString* nameText;
 @property(nonatomic) NSString* heightText;
 @property(nonatomic) NSString* genderText;

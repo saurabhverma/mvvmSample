@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <JSONModel/JSONModel.h>
 
+@protocol Character;
+
 @interface Character : JSONModel
 
 //properties

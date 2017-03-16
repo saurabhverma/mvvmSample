@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <JSONModel/JSONModel.h>
+#import "Character.h"
 
-@interface People : NSObject
+@interface People : JSONModel
 
+@property(nonatomic) NSString <Optional> * count;
+@property(nonatomic) NSString <Optional>* nextPageUrl;
+@property(nonatomic) NSString <Optional>* prevPageUrl;
+@property(nonatomic) NSArray <Character> * characters;
 @end

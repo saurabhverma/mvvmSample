@@ -31,7 +31,7 @@
         self.peopleViewModel = result;
         if (success) {
 
-            if (result.people.count == 0) {
+            if (result.characterViewModels.count == 0) {
                 [self displayEmptyScreen];
             }
             else {
@@ -73,7 +73,7 @@
 }
 #pragma mark - TableView Delegates and Datasource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.peopleViewModel.people.count;
+    return self.peopleViewModel.characterViewModels.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString* cellIdentifier = @"REUSE_IDENTIFIER";
@@ -84,7 +84,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
-    CharacterViewModel* characterViewModel = [self.peopleViewModel.people objectAtIndex:indexPath.row];
+    CharacterViewModel* characterViewModel = [self.peopleViewModel.characterViewModels objectAtIndex:indexPath.row];
     cell.textLabel.text = characterViewModel.nameText;
     cell.textLabel.textColor = [UIColor whiteColor];
 

@@ -7,6 +7,12 @@
 //
 
 #import "CharacterViewModel.h"
+#import "Character.h"
+
+@interface CharacterViewModel()
+
+@property(nonatomic) Character* character;
+@end
 
 @implementation CharacterViewModel
 
