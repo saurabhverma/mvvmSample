@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		20F5B3B5A664EC5F6D934CD6 /* libPods-mvvmSampleObjTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB6B5E424F59E1C867955E0 /* libPods-mvvmSampleObjTests.a */; };
 		5731140FFAA48A93BB288AC8 /* libPods-mvvmSampleObj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7041FEA48A539EF84C804D55 /* libPods-mvvmSampleObj.a */; };
+		B782D3C21E7A5CF50080983B /* NetworkManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B782D3C11E7A5CF50080983B /* NetworkManagerTests.m */; };
+		B782D3C41E7B583D0080983B /* PeopleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B782D3C31E7B583D0080983B /* PeopleTests.m */; };
 		B79C7B321E78A45500FFC393 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B79C7B311E78A45500FFC393 /* NetworkManager.m */; };
 		B79C7B331E78A45500FFC393 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B79C7B311E78A45500FFC393 /* NetworkManager.m */; };
 		B79C7B371E78C03200FFC393 /* CharacterViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B79C7B361E78C03200FFC393 /* CharacterViewModelTests.m */; };
@@ -52,6 +54,8 @@
 		7041FEA48A539EF84C804D55 /* libPods-mvvmSampleObj.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mvvmSampleObj.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7881A33E81667A24B1D05620 /* Pods-mvvmSampleObjTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvvmSampleObjTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mvvmSampleObjTests/Pods-mvvmSampleObjTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9FF4BCD295B1F5F58F918EF5 /* Pods-mvvmSampleObjUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvvmSampleObjUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mvvmSampleObjUITests/Pods-mvvmSampleObjUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B782D3C11E7A5CF50080983B /* NetworkManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkManagerTests.m; path = ../mvvmSampleObj/NetworkManagerTests.m; sourceTree = "<group>"; };
+		B782D3C31E7B583D0080983B /* PeopleTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeopleTests.m; sourceTree = "<group>"; };
 		B79C7B271E77A69200FFC393 /* mvvmSampleObjUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mvvmSampleObjUITests.m; sourceTree = "<group>"; };
 		B79C7B291E77A69200FFC393 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B79C7B301E78A45500FFC393 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
@@ -147,9 +151,11 @@
 		B79C7B3A1E78C04F00FFC393 /* People */ = {
 			isa = PBXGroup;
 			children = (
+				B782D3C11E7A5CF50080983B /* NetworkManagerTests.m */,
 				B79C7B361E78C03200FFC393 /* CharacterViewModelTests.m */,
 				B79C7B381E78C04500FFC393 /* PeopleManagerTests.m */,
 				B79C7B431E7A0BCD00FFC393 /* PeopleViewModelTests.m */,
+				B782D3C31E7B583D0080983B /* PeopleTests.m */,
 			);
 			name = People;
 			sourceTree = "<group>";
@@ -482,6 +488,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B782D3C21E7A5CF50080983B /* NetworkManagerTests.m in Sources */,
+				B782D3C41E7B583D0080983B /* PeopleTests.m in Sources */,
 				B7EE58A81E779B1800655419 /* CharacterViewModel.m in Sources */,
 				B7EE58811E77788900655419 /* mvvmSampleObjTests.m in Sources */,
 				B79C7B391E78C04500FFC393 /* PeopleManagerTests.m in Sources */,

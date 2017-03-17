@@ -18,6 +18,8 @@ NSString* _Nonnull peopleURL = @"http://swapi.co/api/people/";
     dispatch_queue_t serialQueue;
 }
 - (void)executeBlock:(void (^)())block;
+- (void)getStarWarsPeopleFromAPI:(PMStarWarsPeopleBlock)completionHandler;
+- (void)callAPIWithURL:(NSString * _Nonnull )url completionHandler:(NMRequestBlock)completionHandler;
 @end
 
 @implementation PeopleManager
@@ -32,71 +34,87 @@ NSString* _Nonnull peopleURL = @"http://swapi.co/api/people/";
 }
 - (void)getStarWarsPeople:(PMStarWarsPeopleBlock)completionHandler {
 
+    //Where do you want to get this data from? Goto 1. for API and 2. for Local DB
 
-    NMRequestBlock block = nil;
-    block = ^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    //1. API
+    [self executeBlock:^{   //Use Serial queue to call api followed by json parsing
+        [self getStarWarsPeopleFromAPI:^(PeopleViewModel * _Nonnull result, bool success) {
 
-        [self executeBlock:^{
+            //return the result on main queue
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completionHandler(result, success);
+            });
+        }];
+    }];
 
-            __block bool success = YES;
-            NSError* responseError;
-            PeopleViewModel* peopleViewModel = nil;
 
-            @try{
+    //2. Local DB
+}
+#pragma mark - Private Methods
+- (void)getStarWarsPeopleFromAPI:(PMStarWarsPeopleBlock)completionHandler {
 
-                NSUInteger statusCode = ((NSHTTPURLResponse *)response).statusCode;
-                if (!error && statusCode == HTTPCodesNo200OK) {
-                    NSError *jsonError;
+    [self callAPIWithURL:peopleURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        __block bool success = YES;
+        NSError* responseError;
+        PeopleViewModel* peopleViewModel = nil;
 
-                    //Get the Json dictionary out of Data
-                    id jsonDict = [NSJSONSerialization JSONObjectWithData:data
-                                                                             options:0
-                                                                               error:&jsonError];
+        @try{
 
-                    if (!jsonError && [jsonDict isKindOfClass:[NSDictionary class]]) {
+            NSUInteger statusCode = ((NSHTTPURLResponse *)response).statusCode;
+            if (!error && statusCode == HTTPCodesNo200OK) {
+                NSError *jsonError;
 
-                        NSError* jsonModelError;
-                        People* people = [[People alloc] initWithDictionary:jsonDict error:&jsonModelError];
+                //Get the Json dictionary out of Data
+                id jsonDict = [NSJSONSerialization JSONObjectWithData:data
+                                                              options:0
+                                                                error:&jsonError];
 
-                        
-                        if (!jsonModelError) {
-                            peopleViewModel = [[PeopleViewModel alloc] initWithPeople:people];
-                        }
-                        else {
-                            responseError = jsonModelError;
-                        }
+                if (!jsonError && [jsonDict isKindOfClass:[NSDictionary class]]) {
+
+                    NSError* jsonModelError;
+                    People* people = [[People alloc] initWithDictionary:jsonDict error:&jsonModelError];
+
+
+                    if (!jsonModelError) {
+                        peopleViewModel = [[PeopleViewModel alloc] initWithPeople:people];
                     }
                     else {
-                        responseError = jsonError;
+                        responseError = jsonModelError;
                     }
                 }
                 else {
-                    responseError = error;
+                    responseError = jsonError;
                 }
             }
-            @catch (NSException *exception){
+            else {
+                responseError = error;
+            }
+        }
+        @catch (NSException *exception){
 
+            success = NO;
+            peopleViewModel.errorMessageText = exception.reason;
+        }
+        @finally {
+
+            if (responseError) {
                 success = NO;
-                peopleViewModel.errorMessageText = exception.reason;
+                peopleViewModel.errorMessageText = responseError.localizedDescription;
             }
-            @finally {
+            completionHandler(peopleViewModel, success);
+        }
+    }];
 
-                dispatch_async(dispatch_get_main_queue(), ^{
-
-
-                    if (responseError) {
-                        success = NO;
-                        peopleViewModel.errorMessageText = responseError.localizedDescription;
-                    }
-                    completionHandler(peopleViewModel, success);
-                });
-            }
-        }];
-    };
-
-    [[NetworkManager sharedManager] requestWithURL:peopleURL completionHandler:block];
 }
-#pragma mark - Private Methods
+- (void)callAPIWithURL:(NSString * _Nonnull )url completionHandler:(NMRequestBlock)completionHandler {
+
+    NMRequestBlock block = nil;
+    block = ^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        completionHandler(data, response, error);
+    };
+    [[NetworkManager sharedManager] requestWithURL:url completionHandler:block];
+
+}
 - (void)executeBlock:(void (^)())block {
     dispatch_async(serialQueue, block);
 }
